@@ -1,19 +1,19 @@
 package implementations;
 
-public class Node {
-	private Object _value = null;
-	private Node _next_node = null;
+public class Node<T> {
+	private T _value = null;
+	private Node<T> _next_node = null;
 	
-	public Node(Object value) {
+	public Node(T value) {
 		setValue(value);
 	}
 	
-	public Node(Object value, Node next_node) {
+	public Node(T value, Node<T> next_node) {
 		setValue(value);
 		setNext(next_node);
 	}
 	
-	public void setValue(Object value) {
+	public void setValue(T value) {
 		/**
 		 * Sets the value stored in the Node
 		 * @param value
@@ -22,7 +22,7 @@ public class Node {
 		_value = value;
 	}
 	
-	public Object getValue() {
+	public T getValue() {
 		/**
 		 * Returns the value stored in the Node
 		 * @return value Object
@@ -30,7 +30,7 @@ public class Node {
 		return _value;
 	}
 	
-	public void setNext(Node next_node) {
+	public void setNext(Node<T> next_node) {
 		/**
 		 * Sets next Node
 		 * @param next_node
@@ -45,7 +45,7 @@ public class Node {
 		_next_node = null;
 	}
 
-	public Node getNext() {
+	public Node<T> getNext() {
 		/**
 		 * Returns next Node
 		 * @returns Node object or null
@@ -53,14 +53,14 @@ public class Node {
 		return _next_node;
 	}
 	
-	public Object pop() {
+	public T pop() {
 		/**
 		 * Returns the value stored in the Node after changing it by null
 		 * @return value Object
 		 */
-		Object aux = getValue();
+		T popped = getValue();
 		setValue(null);
-		return aux;
+		return popped;
 	}
 	
 }
