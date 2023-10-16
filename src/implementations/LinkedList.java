@@ -19,10 +19,30 @@ public class LinkedList<T> {
 		return -1;
 	}
 	
-	public void insert(T value, long index) {
+	public void insert(T value, long index) throws Exception {
 		/**
 		 * Inserts the given value into the list, in the given position/index
 		 */
+		
+		if (index < 0 || index > length()) {
+			throw new Exception("Can't insert value into the list because given index is not valid");
+		}
+		
+		if (index == 0) {
+			Node<T> new_node = new Node<>(value);
+			new_node.setNext(_head);
+			_head = new_node;
+		} else {
+			Node<T> pointer = _head;
+			for (long i = 0; i < index - 1; i++) {
+				pointer = pointer.getNext();
+			}
+			Node<T> new_node = new Node<>(value);
+			new_node.setNext(pointer.getNext());
+			pointer.setNext(new_node);
+		}
+		
+		_len = _len + 1;
 	}
 	
 	public T remove(T value) {
