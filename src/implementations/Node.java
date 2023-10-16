@@ -45,7 +45,7 @@ public class Node {
 		_next_node = null;
 	}
 
-	public Object getNext() {
+	public Node getNext() {
 		/**
 		 * Returns next Node
 		 * @returns Node object or null
