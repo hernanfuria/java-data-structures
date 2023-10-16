@@ -27,6 +27,8 @@ public class Stack<T> {
 		/**
 		 * @return true if the stack is empty, returns false otherwise
 		 */
+		
+		return _values.isEmpty();
 	}
 
 }
