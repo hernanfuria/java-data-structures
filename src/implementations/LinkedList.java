@@ -129,7 +129,7 @@ public class LinkedList<T> {
 		/**
 		 * Returns true if the list is empty, returns false otherwise
 		 */
-		return true;
+		return _head == null;
 	}
 	
 	public long length() {
