@@ -1,7 +1,7 @@
 package implementations;
 
 public class Stack<T> {
-	private LinkedList<T> _values;
+	private LinkedList<T> _values = new LinkedList<>();
 	
 	public void push(T value) throws Exception {
 		/**
