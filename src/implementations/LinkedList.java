@@ -77,17 +77,52 @@ public class LinkedList<T> {
 	
 	public void append(T value) {
 		/**
-		 * Inserts the given value at the 'beginning' of the list
+		 * Inserts the given value at the 'end' of the list
 		 */
+		
+		try {
+			insert(value, length());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
-	public T pop(long index) {
+	public T pop() throws Exception {
 		/**
-		 * Removes the value at the given index or at the 'beginning' of the list 
+		 * Removes the value at the 'end' of the list and returns it
+		 */
+		
+		return pop(length() - 1);
+	}
+	
+	public T pop(long index) throws Exception {
+		/**
+		 * Removes the value at the given index or at the 'end' of the list 
 		 * (if no index specified), and returns it
 		 */
 		
-		return _head.getValue();
+		if (index < 0 || index >= length()) {
+			throw new Exception("Can't pop value from the list because given index is not valid");
+		}
+		
+		// handles the case when the value is in the first position
+		if (index == 0) {
+			T val = _head.getValue();
+			_head = _head.getNext();
+			_len--;
+			return val;
+		}
+		
+		// handles the case when the value is NOT in the first position
+		Node<T> pointer = _head;
+		for (long i = 0; i < index - 1; i++) {
+			pointer = pointer.getNext();
+		}
+		T val = pointer.getNext().getValue();
+		pointer.setNext(pointer.getNext().getNext());
+		_len--;
+		return val;
 	}
 	
 	public boolean isEmpty() {
