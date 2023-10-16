@@ -1,6 +1,6 @@
 package implementations;
 
-public class Node<T> {
+class Node<T> {
 	private T _value = null;
 	private Node<T> _next_node = null;
 	

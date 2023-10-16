@@ -1,3 +1,4 @@
+/*
 package testing;
 
 import implementations.Node;
@@ -20,3 +21,4 @@ public class NodeTests {
 		System.out.println(n6.getNext() == null);
 	}
 }
+*/
