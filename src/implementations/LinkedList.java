@@ -8,6 +8,14 @@ public class LinkedList<T> {
 		/**
 		 * @return the first appearance's index of the given value. Returns -1 if not found
     	 */
+		
+		Node<T> pointer = _head;
+		for (long i = 0; i < length(); i++) {
+			if (pointer.getValue() == value) {
+				return i;
+			}
+			pointer = pointer.getNext();
+		}
 		return -1;
 	}
 	
