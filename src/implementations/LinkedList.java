@@ -143,7 +143,19 @@ public class LinkedList<T> {
 		/**
 		 * Returns a String representation of the list
 		 */
-		return "";
+		
+		if (!isEmpty()) {
+			String text = "[";
+			Node<T> pointer = _head;
+			for (long i = 0; i < length(); i++) {
+				text = text + pointer.getValue() + ", ";
+				pointer = pointer.getNext();
+ 			}
+			text = text.substring(0, text.length() - 2) + "]";
+			return text;
+		}
+		
+		return "[]";
 	}
 }
 
