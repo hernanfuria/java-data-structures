@@ -1,12 +1,14 @@
 package implementations;
 
 public class Stack<T> {
-	private LinkedList<T> values;
+	private LinkedList<T> _values;
 	
 	public void push(T value) {
 		/**
 		 * Inserts a value to the stack
 		 */
+		
+		_values.append(value);
 	}
 	
 	public T pop() {
