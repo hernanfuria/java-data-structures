@@ -42,7 +42,7 @@ public class LinkedList<T> {
 			pointer.setNext(new_node);
 		}
 		
-		_len = _len + 1;
+		_len++;
 	}
 	
 	public T remove(T value) {
@@ -51,7 +51,28 @@ public class LinkedList<T> {
 		 * and returns it. If not found, returns null.
 		 */
 		
-		return _head.getValue();
+		if (!isEmpty()) {
+			// handles the case when the value is in the first position
+			if (_head.getValue() == value) {
+				_head = _head.getNext();
+				_len--;
+				return value;
+			}
+			
+			// handles the case when the value is NOT in the first position
+			Node<T> pointer = _head;
+			for (long i = 0; i < length() - 1; i++) {
+				if (pointer.getNext().getValue() == value) {
+					pointer.setNext(pointer.getNext().getNext());
+					_len--;
+					return value;
+				}
+				pointer = pointer.getNext();
+			}
+			
+		}
+		
+		return null;
 	}
 	
 	public void append(T value) {
