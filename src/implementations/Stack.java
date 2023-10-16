@@ -17,7 +17,7 @@ public class Stack<T> {
 		 */
 		
 		if (isEmpty()) {
-			throw new Exception("Can't pop from stack because is empty");
+			throw new Exception("Can't pop from stack because it's empty");
 		}
 		
 		return _values.pop(0);
